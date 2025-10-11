@@ -1,5 +1,20 @@
 ---
+const pageTitle = "About";
 
+const identity = {
+    firstName: "Richard",
+    lastName: "Šiser",
+    fullName: "Richard Šiser",
+    occupation: "Mechanical Engineer",
+};
+
+const skills = ["Broušení nožů", "Web development", "MMA Welding"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillWeight = "bold";
 ---
 
 <html lang="en">
@@ -8,13 +23,31 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
+        <style define:vars={{skillWeight}}>
+            .skill {
+                font-weight: var(--skillWeight);
+            }
+        </style>
 	</head>
 	<body>
         <a href="/">Home</a>
         <a href="/about/">About</a>
         <a href="/blog/">Novinky</a>
+        <h1>{pageTitle}</h1>
 		<h1>Vaše nápady, naše povinnost.</h1>
         <p>RCHŠ Inženýrství s.r.o. je společnost založena Ing. Richardem Šiserem 27. října 2024, poskytující profesionální inženýřské služby napříč všemi sektory.</p>
+        <h1>{identity.fullName}</h1>
+        <p>{identity.fullName} je zakladatel společnosti</p>
+        <p>Mezi je schopnosti patří:</p>
+        <ul>
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
+
+        {happy && <p>Zábava</p>}
+
+        {finished && <p>It's finished</p>}
+
+        {goal === 3 ? <p>I will make the site in 3 days</p> : <p>I don't think I can make this site in 3 days</p>}
 	</body>
 </html>

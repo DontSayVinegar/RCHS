@@ -1,5 +1,5 @@
 ---
-
+const pageTitle = "Novinky";
 ---
 
 <html lang="en">
@@ -8,13 +8,17 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
         <a href="/">Home</a>
         <a href="/about/">About</a>
         <a href="/blog/">Novinky</a>
-		<h1>Novinky</h1>
-        <p>Stavba metra D jde výjimečně!</p>
+		<h1>{pageTitle}</h1>
+        <ul>
+            <a href="/posts/post_1">Novinka 1</a>
+            <a href="/posts/post_2">Novinka 2</a>
+            <a href="/posts/post_3">Novinka 3</a>
+        </ul>
 	</body>
 </html>
