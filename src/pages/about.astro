@@ -1,4 +1,8 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
 const pageTitle = "About";
 
 const identity = {
@@ -31,9 +35,7 @@ const skillWeight = "bold";
         </style>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Novinky</a>
+        <Header />
         <h1>{pageTitle}</h1>
 		<h1>Vaše nápady, naše povinnost.</h1>
         <p>RCHŠ Inženýrství s.r.o. je společnost založena Ing. Richardem Šiserem 27. října 2024, poskytující profesionální inženýřské služby napříč všemi sektory.</p>
@@ -49,5 +51,10 @@ const skillWeight = "bold";
         {finished && <p>It's finished</p>}
 
         {goal === 3 ? <p>I will make the site in 3 days</p> : <p>I don't think I can make this site in 3 days</p>}
+        
+        <Footer />
+        <script>
+			import "../scripts/menu";
+		</script>
 	</body>
 </html>
